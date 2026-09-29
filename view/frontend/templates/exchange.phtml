@@ -1,0 +1,117 @@
+<?php
+
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \SMG\FrankfurterExchange\ViewModel\ConfigProvider $viewModel */
+
+$viewModel = $block->getData('view_model');
+?>
+<div class="exchange-page">
+    <div class="exchange-header">
+        <h1><?= $escaper->escapeHtml(__('Currency Exchange')) ?></h1>
+        <p><?= $escaper->escapeHtml(__('Compare current and historical exchange rates.')) ?></p>
+    </div>
+
+    <div id="exchange-message"
+        class="exchange-message"
+        role="alert"
+        aria-live="polite"></div>
+
+    <div class="exchange-content">
+        <!-- LEFT COLUMN -->
+        <section class="exchange-selector">
+            <h2><?= $escaper->escapeHtml(__('Currency Converter')) ?></h2>
+            <div class="currency-field">
+                <label for="from-currency"><?= $escaper->escapeHtml(__('From Currency')) ?></label>
+                <select id="from-currency"
+                    name="from_currency"
+                    disabled>
+                    <option value="">
+                        <?= $escaper->escapeHtml(__('Loading currencies...')) ?>
+                    </option>
+                </select>
+            </div>
+
+            <div class="swap-wrapper">
+                <button
+                    type="button"
+                    id="swap-currencies"
+                    class="action secondary swap-button"
+                    title="<?= $escaper->escapeHtmlAttr(__('Swap currencies')) ?>"
+                    disabled>
+                    ⇄
+                </button>
+            </div>
+            <div class="currency-field">
+                <label for="to-currency">
+                    <?= $escaper->escapeHtml(__('To Currency')) ?>
+                </label>
+                <select id="to-currency"
+                    name="to_currency"
+                    disabled>
+                    <option value="">
+                        <?= $escaper->escapeHtml(__('Loading currencies...')) ?>
+                    </option>
+                </select>
+            </div>
+            <div class="exchange-rate"
+                aria-live="polite">
+                <span class="rate-base">1 USD</span>
+
+                <strong class="rate-value">
+                    = —
+                </strong>
+                <small class="rate-updated">
+                    <?= $escaper->escapeHtml(__('Loading...')) ?>
+                </small>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN -->
+        <section class="exchange-history">
+            <h2><?= $escaper->escapeHtml(__('Historical Exchange Rate')) ?></h2>
+
+            <div class="period-selector"
+                role="group"
+                aria-label="<?= $escaper->escapeHtmlAttr(__('Historical period')) ?>">
+                <button
+                    type="button"
+                    class="action secondary period-button active"
+                    data-days="30">
+                    <?= $escaper->escapeHtml(__('30 Days')) ?>
+                </button>
+                <button
+                    type="button"
+                    class="action secondary period-button"
+                    data-days="90">
+                    <?= $escaper->escapeHtml(__('90 Days')) ?>
+                </button>
+                <button
+                    type="button"
+                    class="action secondary period-button"
+                    data-days="365">
+                    <?= $escaper->escapeHtml(__('1 Year')) ?>
+                </button>
+            </div>
+            <div class="chart-status"
+                id="chart-status"
+                aria-live="polite">
+                <?= $escaper->escapeHtml(__('Loading chart...')) ?>
+            </div>
+            <div id="exchange-chart"
+                class="exchange-chart">
+            </div>
+        </section>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+    "*": {
+        "SMG_FrankfurterExchange/js/exchange": {
+            "defaultFromCurrency": "<?= $escaper->escapeJs($viewModel->getDefaultFromCurrency()) ?>",
+            "defaultToCurrency": "<?= $escaper->escapeJs($viewModel->getDefaultToCurrency()) ?>",
+            "defaultHistoryDays": <?= (int) $viewModel->getDefaultHistoryDays() ?>
+        }
+    }
+}
+</script>

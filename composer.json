@@ -1,0 +1,16 @@
+{
+    "name": "smg/module-frankfurter-exchange",
+    "description": "Magento 2 currency exchange module using Frankfurter API",
+    "type": "magento2-module",
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "SMG\\FrankfurterExchange\\": ""
+        }
+    }
+}

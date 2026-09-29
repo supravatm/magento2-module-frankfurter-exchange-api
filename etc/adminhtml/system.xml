@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system.xsd">
+  <system>
+    <section id="frankfurter_exchange" translate="label" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+      <label>Currency Exchange</label>
+      <tab>general</tab>
+      <resource>SMG_FrankfurterExchange::config</resource>
+      <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>General Configuration</label>
+        <field id="default_from_currency" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Default From Currency</label>
+          <validate>required-entry validate-length maximum-length-3</validate>
+          <comment>Three-letter currency code, for example USD.</comment>
+        </field>
+          <field id="default_to_currency" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Default To Currency</label>
+          <validate>required-entry validate-length maximum-length-3</validate>
+          <comment>Three-letter currency code, for example EUR.</comment>
+        </field>
+        <field id="default_history_days" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Default History Period</label>
+          <source_model>SMG\FrankfurterExchange\Model\Config\Source\HistoryDays</source_model>
+        </field>
+      </group>
+    </section>
+  </system>
+</config>

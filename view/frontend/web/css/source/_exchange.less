@@ -1,0 +1,191 @@
+/**
+ * Copyright © SMG Frankfurter Exchange. All rights reserved.
+ */
+
+.exchange-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    .exchange-header {
+        text-align: center;
+        margin-bottom: 35px;
+
+        h1 {
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin: 0;
+            color: #666;
+        }
+    }
+
+    .exchange-message {
+        margin-bottom: 20px;
+        color: #b30000;
+        text-align: center;
+    }
+
+    .exchange-content {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 30px;
+        align-items: start;
+    }
+
+    .exchange-selector,
+    .exchange-history {
+        padding: 25px;
+        background: #fff;
+        border: 1px solid #ddd;
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+    }
+
+    .currency-field,
+    .amount-field {
+        margin-bottom: 20px;
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        select,
+        input {
+            width: 100%;
+        }
+    }
+
+    .swap-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: -5px 0 15px;
+    }
+
+    .swap-button {
+        min-width: 44px;
+        min-height: 40px;
+        font-size: 20px;
+    }
+
+    .exchange-rate {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 25px;
+        border-top: 1px solid #eee;
+
+        .rate-base {
+            display: block;
+            font-size: 16px;
+        }
+
+        .rate-value {
+            display: block;
+            margin: 6px 0 10px;
+            font-size: 24px;
+        }
+
+        .rate-updated {
+            color: #666;
+        }
+    }
+
+    .exchange-converted {
+        text-align: center;
+        margin-top: 20px;
+        padding: 15px;
+        background: #f7f7f7;
+
+        .converted-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        strong {
+            font-size: 20px;
+        }
+    }
+
+    .period-selector {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .period-button {
+        &.active {
+            font-weight: 600;
+            background-color: #333;
+            color: #fff;
+            border-color: #333;
+        }
+    }
+
+    .chart-status {
+        min-height: 20px;
+        margin-bottom: 10px;
+        color: #666;
+        font-size: 13px;
+    }
+
+    .exchange-chart {
+        width: 100%;
+        min-height: 340px;
+
+        svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .chart-grid-line {
+        stroke: #e5e5e5;
+        stroke-width: 1;
+    }
+
+    .chart-axis-label {
+        fill: #666;
+        font-size: 11px;
+    }
+
+    .chart-line {
+        stroke: #333;
+        stroke-width: 2.5;
+    }
+
+    .chart-point {
+        fill: #333;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        padding: 25px 15px;
+
+        .exchange-content {
+            grid-template-columns: 1fr;
+        }
+
+        .exchange-selector,
+        .exchange-history {
+            padding: 20px;
+        }
+
+        .exchange-chart {
+            min-height: 280px;
+        }
+
+        .period-selector {
+            flex-wrap: wrap;
+        }
+    }
+}

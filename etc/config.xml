@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <frankfurter_exchange>
+            <general>
+                <default_from_currency>USD</default_from_currency>
+                <default_to_currency>INR</default_to_currency>
+                <default_history_days>365</default_history_days>
+            </general>
+        </frankfurter_exchange>
+    </default>
+</config>
